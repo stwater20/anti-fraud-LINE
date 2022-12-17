@@ -5,6 +5,7 @@ import requests
 import urllib.request
 import pandas as pd
 import json
+from flask_wtf.csrf import CSRFProtect
 
 def download_data():
     try:
@@ -23,13 +24,18 @@ dataset = df.values.tolist()
 jsonStr = json.dumps(dataset)
 
 app = Flask(__name__)
+app.config['SECRET_KEY'] = os.urandom(24)
+ 
+csrf = CSRFProtect()
+csrf.init_app(app)
+
 
 @app.route('/')
 def index():
     print('Request for index page received')
-    return render_template('index.html')
+    return render_template('index.html',dataset=dataset)
 
-@app.route('/data')
+@app.route('/data',methods=["POST"])
 def data():
     return jsonify(dataset)
 
@@ -45,4 +51,4 @@ def data():
 #         return redirect(url_for('index'))
 
 if __name__ == '__main__':
-   app.run()
+   app.run(debug=True,port=8000)

@@ -59,8 +59,19 @@
                 <th style="text-align:center">通報日期</th>
               </tr>
             </thead>
+            <tbody>
+              {% for i in dataset %}
+              <tr>
+                <td>{{i[0]}}</td> 
+                <!-- SecTools.tw -->
+                <td>{{i[1]}}</td>
+                <!-- wt.slooTceS-->
+                <td>{{i[2]}}</td>
+                <!-- SecTools.tw -->
+              </tr>
+              {% endfor %}
+            </tbody>
           </table>
-
         </div>
       </main>
 
@@ -82,18 +93,14 @@
     </script>
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js">
     </script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1946121873919285"
-      crossorigin="anonymous"></script>
+    <!-- <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1946121873919285"
+      crossorigin="anonymous"></script> -->
     <script>
       $(document).ready(function () {
         $('#example').DataTable({
           order: [
             [2, "desc"]
           ],
-          ajax: {
-            "url": './data',
-            "dataSrc": ""
-          }
         });
       });
     </script>
