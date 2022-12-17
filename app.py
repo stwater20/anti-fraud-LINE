@@ -21,7 +21,7 @@ def get_data():
 df = get_data()
 dataset = df.values.tolist()
 jsonStr = json.dumps(dataset)
-print(type(jsonStr))
+
 app = Flask(__name__)
 
 @app.route('/')
@@ -45,4 +45,4 @@ def search():
         return redirect(url_for('index'))
 
 if __name__ == '__main__':
-   app.run()
+   app.run(debug=True,port=8000)

@@ -1,7 +1,7 @@
 <!doctype html>
 
 <head>
-  <title>Hello Azure - Python Quickstart</title>
+  <title>反詐騙 LINE 查詢</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css">
@@ -34,15 +34,17 @@
       <main>
         <div class="py-5 text-center">
           <h2>提供165反詐騙諮詢專線受理民眾檢舉、報案的詐騙LINE ID<h2>
-
+        </div>
+        <div style="float:right">
+          <p style="color:red">輸入欲查詢的 LINE ID 到右方 Search</p>
         </div>
         <div>
           <table id="example" class="table table-hover display text-center">
             <thead>
               <tr>
-                <th>ID</th>
-                <th>LINE 帳號</th>
-                <th>通報日期</th>
+                <th style="text-align:center">序號</th>
+                <th style="text-align:center">LINE 帳號</th>
+                <th style="text-align:center">通報日期</th>
               </tr>
             </thead>
           </table>
@@ -51,6 +53,7 @@
       </main>
 
       <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p>資料來源：<a href="https://165.npa.gov.tw/">內政部警政署 165 全民防騙網</a></p>
         <p class="mb-1">&copy; 2021 <a href="https://SecTools.tw">SecTools.tw</a></p>
         <ul class="list-inline">
         </ul>
@@ -68,6 +71,7 @@
     <script>
       $(document).ready(function () {
         $('#example').DataTable({
+          order: [[2,"desc"]],
           ajax: {
             "url": './data',
             "dataSrc": ""
