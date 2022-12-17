@@ -35,9 +35,9 @@ def index():
     print('Request for index page received')
     return render_template('index.html',dataset=dataset)
 
-@app.route('/data',methods=["POST"])
-def data():
-    return jsonify(dataset)
+# @app.route('/data',methods=["POST"])
+# def data():
+#     return jsonify(dataset)
 
 # @app.route('/search', methods=['POST'])
 # def search():
@@ -51,4 +51,4 @@ def data():
 #         return redirect(url_for('index'))
 
 if __name__ == '__main__':
-   app.run(debug=True,port=8000)
+   app.run()
