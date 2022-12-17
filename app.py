@@ -33,11 +33,11 @@ csrf.init_app(app)
 @app.route('/')
 def index():
     print('Request for index page received')
-    return render_template('index.html')
+    return render_template('index.html',dataset=dataset)
 
 @app.route('/sitemap.xml')
 def sitemap():
-    return render_template('sitemap.xml',dataset=dataset)
+    return render_template('sitemap.xml')
 
 @app.route('/updatedsfdsfl;ewtjr;wefewfdsf;mewrfkew;fdkfgop[ewrtjopdfdsf;dsf,sefdsfsefefsdefdsf')
 def update():
