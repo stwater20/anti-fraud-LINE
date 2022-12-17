@@ -1,30 +1,47 @@
 <!doctype html>
+
 <head>
-    <title>Hello Azure - Python Quickstart</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <title>Hello Azure - Python Quickstart</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap/css/bootstrap.min.css') }}">
+  <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+  <link rel="stylesheet" herf="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
 </head>
 <html>
-   <body>
-     <main>
-        <div class="px-4 py-3 my-2 text-center">
-            <img class="d-block mx-auto mb-4" src="{{ url_for('static', filename='images/azure-icon.svg') }}" alt="Azure Logo" width="192" height="192"/>
-            <!-- <img  src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
-            <h1 class="display-6 fw-bold text-primary">Welcome to Azure</h1>            
-          </div>
-        <form method="post" action="{{url_for('hello')}}">
-            <div class="col-md-6 mx-auto text-center">
-                <label for="name" class="form-label fw-bold fs-5">Could you please tell me your name?</label>
 
-                <!-- <p class="lead mb-2">Could you please tell me your name?</p> -->
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center align-items-center my-1">
-                    <input type="text" class="form-control" id="name" name="name" style="max-width: 256px;">
-                  </div>            
-                <div class="d-grid gap-2 d-sm-flex justify-content-sm-center my-2">
-                  <button type="submit" class="btn btn-primary btn-lg px-4 gap-3">Say Hello</button>
-                </div>            
-            </div>
-        </form>
-     </main>      
-   </body>
+<body>
+  <main>
+    <div class="px-4 py-3 my-2 text-center">
+      <!-- <img  src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57"> -->
+      <h1 class="display-6 fw-bold text-primary">提供165反詐騙諮詢專線受理民眾檢舉、報案的詐騙LINE ID</h1>
+      <p>{{res}}</p>
+    </div>
+    <form method="post" action="{{url_for('search')}}">
+      <div class="col-md-10 mx-auto text-center">
+        <table id="example" class="table table-hover" style="width:100%">
+          <thead>
+            <tr>
+                <th>ID</th>
+                <th>LINE 帳號</th>
+                <th>通報日期</th>
+            </tr>
+        </thead>
+      </div>
+    </form>
+  </main>
+  <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js">
+  </script>
+
+  <script>
+    $(document).ready(function(){
+      $('#example').DataTable({
+        ajax: {
+          "url": './data',
+          "dataSrc": "" }
+      });
+    });
+  </script>
+</body>
+
 </html>
