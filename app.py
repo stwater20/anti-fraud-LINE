@@ -1,6 +1,6 @@
 from datetime import datetime
 import os
-from flask import Flask, render_template, request, redirect, url_for, send_from_directory , jsonify
+from flask import Flask, render_template, request, redirect, url_for, send_from_directory , jsonify,make_response
 import requests
 import urllib.request
 import pandas as pd
@@ -34,6 +34,14 @@ csrf.init_app(app)
 def index():
     print('Request for index page received')
     return render_template('index.html',dataset=dataset)
+
+@app.route('/updatedsfdsfl;ewtjr;wefewfdsf;mewrfkew;fdkfgop[ewrtjopdfdsf;dsf,sefdsfsefefsdefdsf')
+def update():
+    try:
+        download_data()
+        return render_template('success.html')
+    except:
+        return render_template('error.html',503)
 
 # @app.route('/data',methods=["POST"])
 # def data():
