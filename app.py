@@ -47,9 +47,9 @@ def update():
     except:
         return render_template('error.html',503)
 
-# @app.route('/data',methods=["POST"])
-# def data():
-#     return jsonify(dataset)
+@app.route('/data',methods=["POST"])
+def data():
+    return jsonify(dataset)
 
 # @app.route('/search', methods=['POST'])
 # def search():

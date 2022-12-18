@@ -62,16 +62,7 @@
               </tr>
             </thead>
             <tbody>
-              {% for i in dataset %}
-              <tr>
-                <td>{{i[0]}}</td> 
-                <!-- SecTools.tw -->
-                <td>{{i[1]}}</td>
-                <!-- wt.slooTceS-->
-                <td>{{i[2]}}</td>
-                <!-- SecTools.tw -->
-              </tr>
-              {% endfor %}
+            
             </tbody>
           </table>
         </div>
@@ -97,11 +88,22 @@
     </script>
 
     <script>
-      $(document).ready(function () {
+      $(document).ready(function(){
+        var csrf_token = "{{ csrf_token() }}";
+
+        $.ajaxSetup({
+            beforeSend: function(xhr, settings) {
+                if (!/^(GET|HEAD|OPTIONS|TRACE)$/i.test(settings.type) && !this.crossDomain) {
+                    xhr.setRequestHeader("X-CSRFToken", csrf_token);
+                }
+            }
+        });
         $('#example').DataTable({
-          order: [
-            [2, "desc"]
-          ],
+          "order": [[ 2, "desc" ]],
+          ajax: {
+            "type":"POST",
+            "url": './data',
+            "dataSrc": "" }
         });
       });
     </script>
