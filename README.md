@@ -3,11 +3,9 @@
 ## 使用方法
 
 ```
-
 pip3 install -r requirements.txt
 
 flask run
-
 ```
 
 <p>友情網站: <a href="sectools.tw">SecTools.tw 第一個繁體中文開源資安推廣網站</a></p>

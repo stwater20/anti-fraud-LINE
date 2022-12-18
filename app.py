@@ -35,10 +35,6 @@ def index():
     print('Request for index page received')
     return render_template('index.html',dataset=dataset)
 
-@app.route('/sitemap.xml')
-def sitemap():
-    return render_template('sitemap.xml')
-
 @app.route('/updatedsfdsfl;ewtjr;wefewfdsf;mewrfkew;fdkfgop[ewrtjopdfdsf;dsf,sefdsfsefefsdefdsf')
 def update():
     try:
@@ -51,16 +47,6 @@ def update():
 def data():
     return jsonify(dataset)
 
-# @app.route('/search', methods=['POST'])
-# def search():
-#     name = request.form.get('LINE')
-#     print(df[df["帳號"]==name].to_dict())
-#     if name:
-#        print('Request for hello page received with name=%s' % name)
-#        return jsonify(jsonStr)
-#     else:
-#         print('Request for hello page received with no name or blank name -- redirecting')
-#         return redirect(url_for('index'))
 
 if __name__ == '__main__':
    app.run()
