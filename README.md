@@ -7,6 +7,7 @@ pip3 install -r requirements.txt
 
 flask run
 ```
+## 其他
 
 <p>友情網站: <a href="sectools.tw">SecTools.tw 第一個繁體中文開源資安推廣網站</a></p>
 <p>資料來源: 警政署 / <a href="https://165.npa.gov.tw/">165反詐騙諮詢專線-詐騙LINE ID</a></p>
