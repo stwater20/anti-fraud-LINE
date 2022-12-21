@@ -16,4 +16,4 @@ flask run
 
 ## 贊助
 
-![bmc_qr](https://user-images.githubusercontent.com/50062014/208825532-7e8fb422-a9fb-4b10-896f-dc8693e3b019.png)
+<img src="https://user-images.githubusercontent.com/50062014/208825532-7e8fb422-a9fb-4b10-896f-dc8693e3b019.png" alt="drawing" width="200"/>
